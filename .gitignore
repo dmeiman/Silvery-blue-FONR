@@ -63,3 +63,4 @@ output/
 # system files mac
 .DS_Store
 *.DS_Store
+.swp
