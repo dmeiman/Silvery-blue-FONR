@@ -22,15 +22,19 @@ na_if(bfly$Dir, "0") -> bfly$Dir
 #> first_arg %>% first_fun %>% second_fun -> output
 #output <- second_fun(first_fun(first_arg))
 
-#creating code to read bfly$Sex for repeated values
-#loading dplyr and tidyr libraries for future use
+# creating code to read bfly$Sex for repeated values
+# loading dplyr and tidyr libraries for future use
 library(dplyr)
 library(tidyr)
+library(tidyverse)
 
 n = 3
 bfly2 = cbind(bfly, replicate(n,bfly$Sex))
 bfly2
+
 # prints message (potential error?): [ reached 'max' / getOption("max.print") -- omitted 267 rows ]
 # bfly2 file not changed, but new rows showing in console
+# keeping in case 
 
-#separate_rows(bfly,Sex,sep=",\\s+")
+bfly3 <- separate_rows(bfly,Sex,sep = ",")
+# this method seems to do the trick. the repeated sex values are moved into a new row with all other values identical - do we want to clean these up and change the WYPT value so those aren't repeating?
