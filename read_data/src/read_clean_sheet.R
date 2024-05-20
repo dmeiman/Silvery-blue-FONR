@@ -28,13 +28,5 @@ library(dplyr)
 library(tidyr)
 library(tidyverse)
 
-n = 3
-bfly2 = cbind(bfly, replicate(n,bfly$Sex))
-bfly2
-
-# prints message (potential error?): [ reached 'max' / getOption("max.print") -- omitted 267 rows ]
-# bfly2 file not changed, but new rows showing in console
-# keeping in case 
-
-bfly3 <- separate_rows(bfly,Sex,sep = ",")
+bfly2 <- separate_rows(bfly,Sex,sep = ",")
 # this method seems to do the trick. the repeated sex values are moved into a new row with all other values identical - do we want to clean these up and change the WYPT value so those aren't repeating?
